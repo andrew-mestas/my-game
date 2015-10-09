@@ -7,54 +7,6 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////////
 
-
-
-var gameOver = false;
-
-var hit = function(choice){
-	if(choice == 0)
-	 var choice = Math.floor((Math.random()*3) +1);
-	choice = choice;
-
-	switch(choice)
-	{
-		case  1  :
-		case "1" : 
-				alert(this["name"] + " used " + this[1]);
-				return Math.floor(Math.random()*35);
-		break; 
-		case  2  : 
-		case "2" :
-				var heal = Math.floor((Math.random()*20));
-				alert(this["name"] + " healed " + heal);
-				if((this["health"] + heal) < 100)
-					this["health"] += heal;
-				else
-					this["health"] += 2;
-				return 0;
-		break;
-		case  3  : 
-		case "3" :
-				alert(this["name"] + " used " + this[3]);
-				this["canBeHit"] = !this["canBeHit"];
-				// alert(this["canBeHit"]);
-				return 0;
-		break;
-	}
-
-}
-var getHit = function(hitAmount){
-	if(this["canBeHit"] == true){
-	 alert(this["name"] + " got hit with " + hitAmount + " damage");
-	 this["health"] -= hitAmount;
-	}
-	else{
-	 alert("blocked");
-	 this["canBeHit"] = !this["canBeHit"];
-	}
-}
-
-
 var game = [
 	{
 	"name" :  "",
@@ -94,28 +46,77 @@ var player2 = "computer";
 
 game[0]["name"] = player1;
 
-var player1Move = 1;
-var player2Move = null;
-// Game Loop
 
-for(var i = 0; !gameOver; i++){
+var battle = function(player1, player2){
+	var gameOver = false;
 
-	//player1Move = prompt("Player Move", "1,2,3");
+	var hit = function(choice){
+		if(choice == 0)
+		 var choice = Math.floor((Math.random()*3) +1);
+		choice = choice;
 
-	if(player2 == "computer")
-	game[(i+1)%2]["getHit"](game[i%2]["hit"]((i%2 ==0)?player1Move : 0));
-	alert(game[i%2]["name"] + " hit " + game[(i+1)%2]["name"]);
-    alert("STATS: \n--------");
-    alert(game[0]["name"] + " health " + game[0]["health"]);
-    alert(game[1]["name"] + " health " + game[1]["health"]);
-    alert("---------\n");
+		switch(choice)
+		{
+			case  1  :
+			case "1" : 
+					alert(this["name"] + " used " + this[1]);
+					return Math.floor(Math.random()*35);
+			break; 
+			case  2  : 
+			case "2" :
+					var heal = Math.floor((Math.random()*20));
+					alert(this["name"] + " healed " + heal);
+					if((this["health"] + heal) < 100)
+						this["health"] += heal;
+					else
+						this["health"] += 2;
+					return 0;
+			break;
+			case  3  : 
+			case "3" :
+					alert(this["name"] + " used " + this[3]);
+					this["canBeHit"] = !this["canBeHit"];
+					// alert(this["canBeHit"]);
+					return 0;
+			break;
+		}
 
-	
-    if(game[0]["health"] <= 0 || game[1]["health"] <= 0)
-     gameOver = !gameOver
+	}
+	var getHit = function(hitAmount){
+		if(this["canBeHit"] == true){
+		 alert(this["name"] + " got hit with " + hitAmount + " damage");
+		 this["health"] -= hitAmount;
+		}
+		else{
+		 alert("blocked");
+		 this["canBeHit"] = !this["canBeHit"];
+		}
+	}
+
+
+
+	var player1Move = null;
+	var player2Move = null;
+	// Game Loop
+
+	for(var i = 0; !gameOver; i++){
+
+		//player1Move = prompt("Player Move", "1,2,3");
+
+		if(player2 == "computer")
+		game[(i+1)%2]["getHit"](game[i%2]["hit"]((i%2 ==0)?player1Move : 0));
+
+		alert(game[i%2]["name"] + " hit " + game[(i+1)%2]["name"]);
+	    alert("STATS: \n--------");
+	    alert(game[0]["name"] + " health " + game[0]["health"]);
+	    alert(game[1]["name"] + " health " + game[1]["health"]);
+	    alert("---------\n");
+
+		
+	    if(game[0]["health"] <= 0 || game[1]["health"] <= 0)
+	     gameOver = !gameOver
+	}
 }
-
-
 
 
 ///////////////////////// COMPUTER VS COMPUTER///////////////////////////////
