@@ -5,10 +5,13 @@
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!-- Bootstrap CSS -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<style>*{font-family: "arial"}</style>
+	<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="gameStyle.css">
+	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -18,12 +21,31 @@
 	</head>
 	<body>
 
-		<h1 class="text-center">Game</h1>
+		<h1 class="text-center">Game</h1><button class="battle">Battle</button>
+			<div class="gameWindow">
+			<!-- <div class="player"><img id="sprite" src="sprites/noMove.png"/></div> -->
+			<!-- <div class="block1"></div>  -->
+			<!-- <div class="block2"></div>  -->
+			<div class="choice"></div>
+			<div class="battleMode">
+				<div class="message"><p id="message"></p></div>
+			</div>
+
+
+			</div>
+
+
 
 		<!-- jQuery -->
-		<!--  <script src="script.js"></script> -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		 <script src="moveAble.js"></script>
+		 <script src="script.js"></script>
+
+	<!-- // <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 	</body>
 </html>
+
+
+<!-- The Public Pokemon Tileset -->
+<!-- by ThatsSoWitty -->

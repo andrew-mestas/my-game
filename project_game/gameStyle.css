@@ -1,0 +1,75 @@
+.player{
+	position:absolute;
+}
+
+#message{
+	border:1px solid;
+	height:80px;
+	width: 200px;
+	position: relative;
+	left: 260px;
+	bottom:-10px;
+}
+.choosing{
+	positon:relative;
+	border:1px solid;
+	height:40px;
+	width:40px;
+	left:30px;
+	background: blue;
+
+}
+.choiceOn{
+	position:absolute;
+	border:1px solid;
+	height:40px;
+	width:40px;
+	top:300px;
+	right:350px;
+	background: blue;
+}
+.on{
+	height:200px;
+	width:200px;
+	position: relative;
+	top: 180px;
+	left:0px;
+	background:red;
+}
+
+.choose,ul{
+	position: relative;
+	top:260px;
+	left:400px;
+}
+.block1{
+	height: 40px;
+	position: fixed;
+	width: 40px;
+	background: grey;
+}
+.block2{
+	height: 40px;
+	width: 40px;
+	position: relative;
+	top: 360px;
+	left:560px;
+	background: grey;
+}
+
+#sprite{
+	height:140%;
+	width:140%;
+}
+
+html,body{
+	width:90%;
+	height:90%;
+	margin:0px;
+}
+
+.gameWindow{
+	border: 1px solid;
+	height:400px;
+	width: 600px;
+}
