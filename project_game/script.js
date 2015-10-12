@@ -26,25 +26,27 @@ var player2 = "Player2";
 		{
 		"name" :  "",
 		"ifHuman" : true,
-		"health" : 100,
+		"hp" : 100,
 		"hit"    : hit,
 		1		 : "attack",
 		2		 : "heal",
 		3		 : "block",
 		"getHit" : getHit,
 		"canBeHit": true,
+		"attack"  : 40,
 		"type" : ""
 		},
 		{
 		"name" :  "MCP",
 		"ifHuman" : false,
-		"health" : 100,
+		"hp" : 100,
 		"hit"    : hit,
 		1		 : "attack",
 		2		 : "heal",
 		3		 : "block",
 		"getHit" : getHit,
 		"canBeHit": true,
+		"attack"  : 40,
 		"type" : ""
 		}
 	]
@@ -59,16 +61,16 @@ function hit(choice){
 			case  1  :
 			case "1" : 
 					console.log(this["name"] + " used " + this[1]);
-					return Math.floor(Math.random()*35);
+					return Math.floor(Math.random()*this["attack"]);
 			break; 
 			case  2  : 
 			case "2" :
-					var heal = Math.floor((Math.random()*20));
+					var heal = Math.floor((Math.random()*(hp*0.25)));
 					console.log(this["name"] + " healed " + heal);
-					if((this["health"] + heal) < 100)
-						this["health"] += heal;
+					if((this["hp"] + heal) < 100)
+						this["hp"] += heal;
 					else
-						this["health"] += 2;
+						this["hp"] += 2;
 					return 0;
 			break;
 			case  3  : 
@@ -84,7 +86,7 @@ function hit(choice){
 function getHit(hitAmount){
 	if(this["canBeHit"] == true){
 	 console.log(this["name"] + " got hit with " + hitAmount + " damage");
-	 this["health"] -= hitAmount;
+	 this["hp"] -= hitAmount;
 	}
 	else{
 	 console.log("blocked");
@@ -124,12 +126,12 @@ var battle = function(player1, player2){
 
 		console.log(game[i%2]["name"] + " hit " + game[(i+1)%2]["name"]);
 	    console.log("STATS: \n--------");
-	    console.log(game[0]["name"] + " health " + game[0]["health"]);
-	    console.log(game[1]["name"] + " health " + game[1]["health"]);
+	    console.log(game[0]["name"] + " hp " + game[0]["hp"]);
+	    console.log(game[1]["name"] + " hp " + game[1]["hp"]);
 	    console.log("---------\n");
 
 		
-	    if(game[0]["health"] <= 0 || game[1]["health"] <= 0)
+	    if(game[0]["hp"] <= 0 || game[1]["hp"] <= 0)
 	     gameOver = !gameOver
 	}
 }
@@ -150,7 +152,45 @@ var toggle = true;
 
 $(document).ready(function(){
 	$("p").hide();
+	var pk = "pk";
+	var num = 0;
+	for(var i=0; i<$(".pkb").length;i++)
+	{
+		pk ="";
+	    num = parseInt(i);
+		pk = "#pk" + num.toString();
+		console.log(pk)
+		$(pk)[0].setAttribute("src", "http://vignette3.wikia.nocookie.net/clubpenguin/images/4/4c/Pokeball.png/revision/latest/scale-to-width-down/240?cb=20130901024704");
+		$(pk)[0].setAttribute("width","40px");
+	}
 
+
+// Apply a on hover to the entire pokeball bar then delegate to children
+// on ("click" "img")
+// get id then set img url from pokedata array in home html
+// swal({   title: "Sweet!",   text: "Here's a custom image.",   imageUrl: "images/thumbs-up.jpg" });
+//
+// To - Do get game data from pokemon api to load game
+// work in input for battle system - drop down etc
+// animation
+// players
+// menus
+// outer world to walk - sprite sheet
+//
+
+
+///////////////////////////////////////////////////////////////////////
+// 						Load Game Data 
+//
+///////////////////////////////////////////////////////////////////////
+
+// console.log(pokeData);
+
+
+///////////////////////////////////////////////////////////////////////
+//  Test Battle
+//
+///////////////////////////////////////////////////////////////////////
 
 	$(".battle").click(function(){
 	$(".battleMode").toggleClass("on");
@@ -161,6 +201,7 @@ $(document).ready(function(){
 	$("p").hide();
 	toggle = !toggle;
 	battle(player1,player2);
+	});
 
 	// if(toggle){
 	// 	$(".choose").show();
@@ -171,7 +212,7 @@ $(document).ready(function(){
 	// 	$(".btn").hide();		
 	// }	
 	// toggle = !toggle;
-	});
+
 
 
 
@@ -187,15 +228,15 @@ $(document).ready(function(){
 // 	game[(i+1)%2]["getHit"](game[i%2]["hit"]());
 // 	// console.log(game[i%2]["name"] + " hit " + game[(i+1)%2]["name"]);
 //     console.log("STATS: \n--------");
-//     console.log(game[0]["name"] + " health " + game[0]["health"]);
-//     console.log(game[1]["name"] + " health " + game[1]["health"]);
+//     console.log(game[0]["name"] + " hp " + game[0]["hp"]);
+//     console.log(game[1]["name"] + " hp " + game[1]["hp"]);
 //     console.log("---------\n");
-//     if(game[0]["health"] <= 0 || game[1]["health"] <= 0)
+//     if(game[0]["hp"] <= 0 || game[1]["hp"] <= 0)
 //      gameOver = !gameOver
 // }
 //
-// 	console.log(game[0]["name"] + " health" + game[0]["health"]);
-//     console.log(game[1]["name"] + " health" + game[1]["health"]);
+// 	console.log(game[0]["name"] + " hp" + game[0]["hp"]);
+//     console.log(game[1]["name"] + " hp" + game[1]["hp"]);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -204,21 +245,21 @@ $(document).ready(function(){
 // use playerCLickCount % 2 for each player
 // var game = [p1,p2];
 // game[1]["getHit"](game[0]["hit"]());
-// console.log(game[1]["health"]);
+// console.log(game[1]["hp"]);
 // var p1 = player("Andrew",true,100);
 // p2["getHit"](p1["hit"]());
-// console.log(p2["health"]);
+// console.log(p2["hp"]);
 // class player{
-// 	constructor(name, ifHuman = false, health = 100){
+// 	constructor(name, ifHuman = false, hp = 100){
 // 		this.name = name;
 // 		this.ifHuman = ifHuman;
-// 		this.health = 100;
+// 		this.hp = 100;
 // 	}
 // 	hit(){
 // 		return 4;
 // 	}
 // 	getHit(hitAmount){
-// 		this.health -= hitAmount;
+// 		this.hp -= hitAmount;
 // 	}
 // 	whoAmI(){
 // 		return this.name;

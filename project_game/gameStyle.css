@@ -37,7 +37,7 @@
 	background:red;
 }
 
-.choose,ul{
+.choose{
 	position: relative;
 	top:260px;
 	left:400px;
@@ -62,14 +62,38 @@
 	width:140%;
 }
 
-html,body{
-	width:90%;
-	height:90%;
-	margin:0px;
-}
 
 .gameWindow{
 	border: 1px solid;
 	height:400px;
 	width: 600px;
+}
+
+#pokeball{
+	height:20px;
+}
+.progress{
+	position: relative;
+	bottom:54px;
+	left:240px;
+	width:40%;
+}
+
+.currentPokemon{
+	width: 280px;
+	height: 42px;
+	background: #222222;
+	text-align: center;
+	position: relative; 
+	bottom: 106px;
+	left: 760px;
+}
+.pkb{
+	width: 40px;
+	height: 40px;
+	margin-top:1px;
+	display: inline-block;
+}
+.pkb:hover{
+
 }
