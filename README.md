@@ -7,6 +7,7 @@ Additional resources
 + kiwi.js - game engine 
 + pokemondb.net - images
 + playonloop.com/2015-music-loops - looped background songs
++ fanart.pokefans.net - tileset
 
 Goals for this project - 
 
