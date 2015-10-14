@@ -54,7 +54,7 @@ $(document).ready(function(){
 			// console.log(urlIndex);
 			if(urlIndex >= 14){
  				clearInterval(stopMe);
- 				window.open("/outside/index.html","_parent");
+ 				window.open("index_outside.html","_parent");
  			}
 			}
 		}

@@ -1,0 +1,56 @@
+#content {
+    margin: 30px auto 0 auto;
+    right: 0px;
+    bottom: 500px;
+}
+
+body {
+    background: grey;
+    height: 600px;
+}
+
+.bodyOfG {
+    height: 100%;
+    width: 600px;
+    background: #5ECF02;
+    position: relative;
+    top: 28px;
+    margin: 0 auto 0 auto;
+    border-radius: 4% 4% 0 0;
+}
+
+.screen {
+    position: relative;
+    top: 40px;
+    width: 500px;
+    height: 500px;
+    background: black;
+    margin: 0 auto 0 auto;
+    border-radius: 10px 10px 10% 10px;
+}
+
+.top {
+    position: absolute;
+    right: 194px;
+    height: 132px;
+    width: 1px;
+    background: black;
+}
+
+.mid {
+    position: absolute;
+    left: 190px;
+    top: 184px;
+    height: 132px;
+    width: 1px;
+    background: black;
+}
+
+.bot {
+    position: absolute;
+    right: 194px;
+    top: 318px;
+    height: 132px;
+    width: 1px;
+    background: black;
+}

@@ -13,9 +13,9 @@ var myState = new Kiwi.State('myState');
 
 myState.preload = function () {
     Kiwi.State.prototype.preload.call(this);
-    this.addSpriteSheet( 'characterSprite', 'red.png', 32, 32);
+    this.addSpriteSheet( 'characterSprite', '/sprites/red.png', 32, 32);
     this.addJSON('tilemap','map.json');
-	this.addSpriteSheet('tiles','tileset-wesley.png',16,16);
+	this.addSpriteSheet('tiles','/sprites/tileset-wesley.png',16,16);
 
 }
 
@@ -54,6 +54,9 @@ myState.create = function(){
 
    	this.character.scaleX = 0.6;
    	this.character.scaleY = 0.6;
+    $("#1compositeCanvas")[0].style.height = "125%";
+    $("#1compositeCanvas")[0].style.width = "125%"
+
 
 };
 
@@ -96,7 +99,7 @@ myState.update = function(){
         if( this.character.transform.x >= 98 && battle == false && this.character.transform.x <= 113 &&   this.character.transform.y <= 235 &&   this.character.transform.y >= 223)
         	{battle = !battle;
              $("#mainMusic")[0].pause();
-        	 window.open("../game/game.html","_parent");
+        	 setTimeout(function(){window.open("game.html","_parent");},200);
         	}
 
 };
