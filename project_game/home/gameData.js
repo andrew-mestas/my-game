@@ -24,7 +24,7 @@ var storeCharacterData = function(data){
 	if(data.moves[i].level == 1)
 	moves.push(data.moves[i].name);
 	}
-	var info = "{\"1\": \"" + moves[0] + "\",\"2\": \"" + moves[1]+ "\", \"3\":\"heal\",\"4\":\"block\",\"name\": \"" + data.name + "\",\"ifHuman\":false,\"hp\": \"" + data.hp + "\",\"canBeHit\":true,\"attack\": \"" + data.attack + "\",\"type\":\"\"}";	
+	var info = "{\"1\": \"" + moves[0] + "\",\"2\": \"" + moves[1]+ "\", \"3\":\"heal\",\"4\":\"block\",\"defense\":\"" + data.defense + "\",\"name\": \"" + data.name + "\",\"ifHuman\":false,\"hp\": \"" + data.hp + "\",\"canBeHit\":true,\"attack\": \"" + data.attack + "\",\"type\":\"\"}";	
 	console.log(info);
 	localStorage.setItem(localStoreIndex, info);
 	localStoreIndex++;
@@ -54,7 +54,7 @@ $(document).ready(function(){
 			// console.log(urlIndex);
 			if(urlIndex >= 14){
  				clearInterval(stopMe);
- 				window.open("../game/game.html","_parent");
+ 				window.open("/outside/index.html","_parent");
  			}
 			}
 		}
