@@ -13,9 +13,9 @@ var myState = new Kiwi.State('myState');
 
 myState.preload = function () {
     Kiwi.State.prototype.preload.call(this);
-    this.addSpriteSheet( 'characterSprite', '/sprites/red.png', 32, 32);
+    this.addSpriteSheet( 'characterSprite', 'red.png', 32, 32);
     this.addJSON('tilemap','map.json');
-	this.addSpriteSheet('tiles','/sprites/tileset-wesley.png',16,16);
+	this.addSpriteSheet('tiles','tileset-wesley.png',16,16);
 
 }
 

@@ -184,7 +184,7 @@ $(document).ready(function() {
         addObj = JSON.parse(localStorage[i]);
         addObj["hit"] = hit;
         addObj["getHit"] = getHit;
-        addObj["img"] = "/sprites/" + (parseInt(i) + 1).toString() + ".png"; //CHANGED
+        addObj["img"] = (parseInt(i) + 1).toString() + ".png"; //CHANGED
         game.push(addObj);
     }
     randomFighter = Math.floor((Math.random()) * game.length);
