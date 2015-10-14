@@ -1,6 +1,13 @@
 # my-game
 Welcome to the online PokeyMon clone! 
-This is a personal project I would like to expand on. All images and game data are taken from the http://pokeapi.co/ and is all open source. Goals for this project - 
+This is a personal project I would like to expand on. Most images and game data are taken from the http://pokeapi.co/ 
+Additional resources 
+
++ downloads.khinsider.com - video game music
++ kiwi.js - game engine 
++ pokemondb.net - images
+
+Goals for this project - 
 
 + Get a world map up and running (working on this)
 + Get the battle system running smoothly (really close on this)
