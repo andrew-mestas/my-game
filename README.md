@@ -6,6 +6,7 @@ Additional resources
 + downloads.khinsider.com - video game music
 + kiwi.js - game engine 
 + pokemondb.net - images
++ playonloop.com/2015-music-loops - looped background songs
 
 Goals for this project - 
 
