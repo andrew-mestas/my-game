@@ -230,11 +230,11 @@ $(document).ready(function() {
 	    checkGameOver();
 	    if (gameOver) {
 
-	        if (game[0]["hp"] < 0) {
+	        if (game[0]["hp"] <= 0) {
 	            $(".pb1")[0].style.width = "0%";
 	            winner = game[randomFighter]["name"].toString() + " wins!";
 
-	        } else if (game[randomFighter]["hp"] < 0) {
+	        } else if (game[randomFighter]["hp"] <= 0) {
 	            $(".pb2")[0].style.width = "0%";
 	            winner = "You Win!";
 	        }
